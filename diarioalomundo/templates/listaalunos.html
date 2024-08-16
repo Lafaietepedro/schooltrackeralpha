@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alunos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='listaalunos.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Sora:wght@100..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    {% if alunos %}
+    <table border="1">
+        <thead id="table_head">
+            <th>Lista de Alunos</th>
+        </thead>
+
+        <tbody>
+            <tr id="colunas_table">
+                <th>RA</th>
+                <th>Nome</th>
+                <th>Tempo de Estudo</th>
+                <th>Renda Familiar</th>
+            </tr>
+            {% for aluno in alunos %}
+            <tr id="alunos_row">
+                <td>{{aluno.ra}}</td>
+                <td>{{aluno.nome}}</td>
+                <td>{{aluno.tempoestudo}}</td>
+                <td>{{aluno.rendafamiliar}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Nenhum aluno cadastrado!</p>
+    {% endif %}
+</body>
+
+</html>
